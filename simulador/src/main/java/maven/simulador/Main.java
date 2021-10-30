@@ -1,6 +1,5 @@
 package maven.simulador;
 
-//import java.time.LocalTime;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -10,14 +9,12 @@ public class Main {
 		Sensor sensor = new Sensor(0,0);
 		String content = "CO2 = "+sensor.getCo2()+" ; CO = "+sensor.getCo()
 		+" ; Fan = "+sensor.isFan();
-		System.out.println(content);
 		MqttPublish publicar = new MqttPublish(content);
 		publicar.publish();
-		while (true) {
+		ClienteMqtt cliente = new ClienteMqtt(); 
+		for(int i = 0; i<13;i++) {
 			try {
 				TimeUnit.SECONDS.sleep(5);
-				//LocalTime myObj = LocalTime.now(); 
-			    //System.out.println(myObj);
 				if(sensor.isFan()) {
 					if(sensor.getCo2() > 0) {
 						sensor.setCo2(sensor.getCo2()-1);
@@ -38,13 +35,13 @@ public class Main {
 				}				
 				content = "CO2 = "+sensor.getCo2()+" ; CO = "+sensor.getCo()
 				+" ; Fan = "+sensor.isFan();
-				System.out.println(content);
 				publicar.setContent(content);
 				publicar.publish();
 			} catch (InterruptedException e) {
 				System.out.println("exception "+e);
 			}	
 		}
+		cliente.desconectar();
 	}
 	public static int returnRandom() {	
 		Random rand = new Random();

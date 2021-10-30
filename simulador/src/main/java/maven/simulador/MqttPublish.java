@@ -21,7 +21,7 @@ public class MqttPublish {
 		this.setContent(content);
 		this.qos = 2;
 		this.broker = "tcp://broker.hivemq.com:1883";
-		this.clientId = "clientId-GrupoTrabalho";
+		this.clientId = "GrupoTrabalho-Simulador";
 		this.persistence = new MemoryPersistence();
 	}
 	
@@ -41,13 +41,8 @@ public class MqttPublish {
 	        message.setQos(qos);
 	        sampleClient.publish(topic, message);
 	        sampleClient.disconnect();
-	    } catch(MqttException me) {
-	        System.out.println("reason "+me.getReasonCode());
-	        System.out.println("msg "+me.getMessage());
-	        System.out.println("loc "+me.getLocalizedMessage());
-	        System.out.println("cause "+me.getCause());
-	        System.out.println("excep "+me);
-	        me.printStackTrace();
+	    } catch(MqttException e) {
+	        System.out.println("Exception "+e);
 	    }
 	}
 	
