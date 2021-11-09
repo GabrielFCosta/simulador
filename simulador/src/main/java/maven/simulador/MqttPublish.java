@@ -17,11 +17,11 @@ public class MqttPublish {
 	
 	public MqttPublish(String content) {
 		super();
-		this.topic = "MATD02_GasMonitor";
+		this.topic = "MATD02_GasMonitor1";
 		this.setContent(content);
 		this.qos = 2;
 		this.broker = "tcp://broker.hivemq.com:1883";
-		this.clientId = "GrupoTrabalho-Simulador";
+		this.clientId = "MATD02_Simulador";
 		this.persistence = new MemoryPersistence();
 	}
 	

@@ -19,7 +19,7 @@ public class ClienteMqtt implements MqttCallback {
 	
 	public ClienteMqtt() {
 		super();
-		this.topic = "MATD02_GasMonitor";
+		this.topic = "MATD02_GasMonitor1";
 		this.broker = "tcp://broker.hivemq.com:1883";
 		this.clientId = "GrupoTrabalho-Cliente";
 		this.qos = 2;
