@@ -1,1 +1,1 @@
-#### Simulador de sensor de gás em Java utilizando MQTT.
+#### Programa simulador de sensor de gás em Java utilizando MQTT.
